@@ -61,6 +61,7 @@ public class HelloConsumerController {
             }
         }
         System.err.println("最终获得的客户端ip是{}"+ip);
+        System.err.println("测试远程提交");
         return ip;
     }
 }
