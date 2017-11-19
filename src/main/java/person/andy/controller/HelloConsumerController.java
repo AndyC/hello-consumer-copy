@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 @RestController
 public class HelloConsumerController {
     @Resource
-    public RestTemplate restTemplate;
+    private RestTemplate restTemplate;
     @RequestMapping(value = "/hello",method = RequestMethod.GET)
     public String getHello(){
         System.err.println("hello consumer copy");
@@ -25,6 +25,7 @@ public class HelloConsumerController {
     @RequestMapping(value = "/serviceHello",method = RequestMethod.GET)
     public String helloAsService(HttpServletRequest request){
         String remoteIp=getClientIp(request);
+        System.err.println(remoteIp);
         return "hello as service";
     }
     private static String getClientIp(HttpServletRequest request) {
@@ -52,10 +53,9 @@ public class HelloConsumerController {
             }
         } else if (ip.length() > 15) {
             String[] ips = ip.split(",");
-            for (int index = 0; index < ips.length; index++) {
-                String strIp = (String) ips[index];
-                if (!("unknown".equalsIgnoreCase(strIp))) {
-                    ip = strIp;
+            for (String ip1 : ips) {
+                if (!("unknown".equalsIgnoreCase(ip1))) {
+                    ip = ip1;
                     break;
                 }
             }
