@@ -24,8 +24,6 @@ public class HelloConsumerController {
     }
     @RequestMapping(value = "/serviceHello",method = RequestMethod.GET)
     public String helloAsService(HttpServletRequest request){
-        String remoteIp=getClientIp(request);
-        System.err.println(remoteIp);
         return "hello as service";
     }
     private static String getClientIp(HttpServletRequest request) {
