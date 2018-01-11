@@ -23,7 +23,7 @@ public class HelloConsumerController {
         return restTemplate.getForEntity("http://hello-service/hello/hello",String.class).getBody();
     }
     @RequestMapping(value = "/serviceHello",method = RequestMethod.GET)
-    public String helloAsService(HttpServletRequest request){
+    public String helloAsService(){
         return "hello as service";
     }
 }
