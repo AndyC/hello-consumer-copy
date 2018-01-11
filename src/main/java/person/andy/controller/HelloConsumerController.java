@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 @RestController
 public class HelloConsumerController {
     @Resource
-    public RestTemplate restTemplate;
+    private RestTemplate restTemplate;
     @RequestMapping(value = "/hello",method = RequestMethod.GET)
     public String getHello(){
         System.err.println("hello consumer copy");
